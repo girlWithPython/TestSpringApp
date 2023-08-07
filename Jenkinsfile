@@ -24,8 +24,4 @@ pipeline {
             }
         }
     }
-
-    post {
-        echo 'Deployment in finished'
-    }
 }
