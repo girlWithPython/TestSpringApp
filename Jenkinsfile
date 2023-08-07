@@ -13,7 +13,7 @@ pipeline {
             steps {
                 echo 'Creating Docker image...'
                 sh 'docker build --tag vladlukjanenko/test-app:test-app ./'
-                sh 'docker push vladlukjanenko/test-app:test-app-v1'
+                sh 'docker push vladlukjanenko/test-app:test-app'
             }
         }
 
