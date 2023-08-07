@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+        DOCKER_HUB_ID = credentials('dockerhu-id')
+    }
     stages {
         stage('Build project with Gradle') {
             steps {
@@ -11,7 +14,8 @@ pipeline {
 
         stage('Create Docker image') {
             steps {
-                echo 'Creating Docker image...'
+                echo 'Creating Docker image... id= =${DOCKER_HUB_ID}'
+                sh 'docker loing '
                 sh 'docker build --tag vladlukjanenko/test-app:test-app ./'
                 sh 'docker push vladlukjanenko/test-app:test-app'
             }
