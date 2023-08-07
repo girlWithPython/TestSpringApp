@@ -12,7 +12,7 @@ pipeline {
         stage('Create Docker image') {
             steps {
                 script {
-                    withCredentials([usernamePassword(credentialsId: dockerhu-id, passwordVariable: 'PASSWORD', usernameVariable: 'USER')]) {
+                    withCredentials([usernamePassword(credentialsId: 'dockerhu-id', passwordVariable: 'PASSWORD', usernameVariable: 'USER')]) {
                         sh 'echo $PASSWORD $USER'
                     }
                 }
