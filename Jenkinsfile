@@ -26,6 +26,7 @@ pipeline {
             steps {
                 echo 'Deploying Docker image to AKS...'
                 sh 'cp -r ./build/resources/main/helm/ ./'
+                sh 'az aks get-credentials --resource-group "AksRG" --name "VladCluster"'
                 sh 'helm install testApp ./helm'
             }
         }
