@@ -26,7 +26,7 @@ pipeline {
             steps {
                 echo 'Deploying Docker image to AKS...'
                 sh 'cp -r ./build/resources/main/helm/ ./'
-                sh 'helm install testApp ./'
+                sh 'helm install testApp ./helm'
             }
         }
     }
