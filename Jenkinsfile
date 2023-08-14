@@ -25,6 +25,7 @@ pipeline {
         stage('Deploy AKS') {
             steps {
                 echo 'Deploying Docker image to AKS...'
+                sh 'pwd'
                 sh 'cp -r ./build/resources/helm ./'
                 sh 'helm install testApp ./'
             }
