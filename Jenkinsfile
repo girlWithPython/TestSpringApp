@@ -28,7 +28,7 @@ pipeline {
                 sh 'cp -r ./build/resources/main/helm/ ./'
                 sh 'az login --service-principal -u "70e080d1-2c93-498f-b6e4-92ced8333b43" -p "Gqq8Q~scWxyRS9tVUecEgKelLpcQYwBvTIUMLdzQ" --tenant "75a8ecc8-48ec-446f-a3f4-6afab755d344"'
                 sh 'az aks get-credentials --resource-group "AksRG" --name "VladCluster"'
-                sh 'helm install testApp ./helm'
+                sh 'helm install test-app ./helm'
             }
         }
     }
