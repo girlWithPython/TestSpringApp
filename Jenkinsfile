@@ -1,14 +1,6 @@
 pipeline {
     agent any
     stages {
-        stage('Build project with Gradle') {
-            steps {
-                echo 'Building project...'
-                sh './gradlew clean build'
-                sh 'ls -la ./'
-            }
-        }
-
         stage('Create Docker image') {
             steps {
                 script {
@@ -16,9 +8,9 @@ pipeline {
                         sh 'docker login -u="$USER" -p="$PASSWORD"'
                     }
                 }
-                echo 'Creating Docker image... id= =$DOCKER_HUB_ID'
-                sh 'docker build --tag vladlukjanenko/test-app:test-app ./'
-                sh 'docker push vladlukjanenko/test-app:test-app'
+                echo 'Creating Docker image...'
+                sh 'docker build --tag vladlukjanenko/test-app:v${env.BUILD_NUMBER} ./'
+                sh 'docker push vladlukjanenko/test-app:v${env.BUILD_NUMBER}'
             }
         }
 
