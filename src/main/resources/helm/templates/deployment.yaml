@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: test-app
-          image: vladlukjanenko/test-app:test-app-v1
+          image: {{ .Values.container.image }}
           ports:
             - containerPort: 8080
 

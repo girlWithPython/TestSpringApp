@@ -1,0 +1,2 @@
+container:
+  image: vladlukjanenko/test-app:v1
