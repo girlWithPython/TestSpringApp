@@ -9,7 +9,6 @@ pipeline {
                     }
                 }
                 echo 'Creating Docker image...'
-                echo ${env.BUILD_NUMBER}
                 echo ${BUILD_NUMBER}
                 echo $BUILD_NUMBER
                 sh 'docker build --tag vladlukjanenko/test-app:v${env.BUILD_NUMBER} ./'
