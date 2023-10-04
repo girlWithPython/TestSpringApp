@@ -5,7 +5,7 @@ pipeline {
             steps {
                 script {
                     withCredentials([usernamePassword(credentialsId: 'dockerhu-id', passwordVariable: 'PASSWORD', usernameVariable: 'USER')]) {
-                        sh 'docker login -u="$USER" -p="$PASSWORD"'
+                        sh 'sudo docker login -u="$USER" -p="$PASSWORD"'
                     }
                 }
                 echo 'Creating Docker image...'
