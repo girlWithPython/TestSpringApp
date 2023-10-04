@@ -5,7 +5,7 @@ pipeline {
             steps { 
                 script {
                     withCredentials([string(credentialsId: 'pravdorubka1979', variable: 'dckr_pat_1f3r3xisuJyPzOfjZD9xdMDgMlo')]) {                       
-                    sh 'cat ~/token.txt | docker login --username pravdorubka1979 --password-stdin'}  
+                    sh 'cat /home/linuxadmin/token.txt | docker login --username pravdorubka1979 --password-stdin'}  
                 }             
                 echo 'Creating Docker image...'
                 sh 'docker build --tag vladlukjanenko/test-app:v${BUILD_NUMBER} ./'
