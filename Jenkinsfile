@@ -4,7 +4,7 @@ pipeline {
         stage('Create Docker image') {
             steps {
                 script {
-                    withCredentials([usernamePassword(credentialsId: 'pravdorubka1979', passwordVariable: 'dockerpassword', usernameVariable: 'pravdorubka1979')]) {
+                    withCredentials([usernamePassword(credentialsId: 'pravdorubka1979@gmail.com', passwordVariable: 'dockerpassword', usernameVariable: 'pravdorubka1979')]) {
                         sh 'docker login -u="$USER" -p="$PASSWORD"'
                     }
                 }
