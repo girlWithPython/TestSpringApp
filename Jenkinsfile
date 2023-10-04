@@ -2,7 +2,11 @@ pipeline {
     agent any
     stages {
         stage('Create Docker image') {
-            steps {              
+            steps { 
+                script {
+                    withCredentials([usernamePassword(credentialsId: 'pravdorubka1979', passwordVariable: 'dockerpassword', usernameVariable: 'pravdorubka1979')]) {
+                        sh 'docker login -u="$USER" -p="$PASSWORD"'
+                    }                
                 sh 'docker login -u="pravdorubka1979" -p="dockerpassword"'
                 echo 'Creating Docker image...'
                 sh 'docker build --tag vladlukjanenko/test-app:v${BUILD_NUMBER} ./'
