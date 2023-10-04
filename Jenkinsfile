@@ -4,8 +4,8 @@ pipeline {
         stage('Create Docker image') {
             steps { 
                 script {
-                    withCredentials([usernamePassword(credentialsId: '2dae0662-6329-4b61-8d44-ac9a0e0b5469', passwordVariable: 'dockerpassword', usernameVariable: 'pravdorubka1979')]) {
-                        sh 'docker login -u ${dockerhubusr} -p ${dockerhubpwd}'}  
+                    withCredentials([string(credentialsId: 'pravdorubka1979', variable: 'dckr_pat_1f3r3xisuJyPzOfjZD9xdMDgMlo')]) {                       
+                    sh 'sudo cat ~/token.txt | sudo docker login --username pravdorubka1979 --password-stdin'}  
                 }             
                 echo 'Creating Docker image...'
                 sh 'docker build --tag vladlukjanenko/test-app:v${BUILD_NUMBER} ./'
