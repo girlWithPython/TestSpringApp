@@ -4,10 +4,9 @@ pipeline {
         stage('Create Docker image') {
             steps { 
                 script {
-                    withCredentials([usernamePassword(credentialsId: 'pravdorubka1979', passwordVariable: 'dockerpassword', usernameVariable: 'pravdorubka1979')]) {
-                        sh 'docker login -u="$USER" -p="$PASSWORD"'
-                    }                
-                sh 'docker login -u="pravdorubka1979" -p="dockerpassword"'
+                    withCredentials([usernamePassword(credentialsId: '2dae0662-6329-4b61-8d44-ac9a0e0b5469', dockerhubpwd: 'dockerpassword', dockerhubusr: 'pravdorubka1979')]) {
+                        sh 'docker login -u ${dockerhubusr} -p ${dockerhubpwd}'
+                    }               
                 echo 'Creating Docker image...'
                 sh 'docker build --tag vladlukjanenko/test-app:v${BUILD_NUMBER} ./'
                 sh 'docker push vladlukjanenko/test-app:v${BUILD_NUMBER}'
