@@ -13,5 +13,5 @@ WORKDIR /workspace/app
 COPY --from=builder /workspace/app/build/ /workspace/app/build/
 
 EXPOSE 8080
-COPY ./build/libs/SpringApp-*.jar application.jar
+COPY /workspace/app/build/libs/SpringApp-*.jar application.jar
 ENTRYPOINT ["java", "-jar", "/application.jar"]
