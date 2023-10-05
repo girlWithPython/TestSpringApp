@@ -10,7 +10,8 @@ RUN ./gradlew clean build
 
 FROM eclipse-temurin:17-jdk-alpine
 WORKDIR /workspace/app
-COPY --from=builder /workspace/app/build/ /workspace/app/build/
+COPY --from=builder /workspace/app/build/ ./
+RUN echo $(ls -la ./)
 RUN echo $(ls -la ./libs)
 
 EXPOSE 8080
