@@ -14,6 +14,9 @@ COPY --from=builder /workspace/app/build/ ./
 RUN echo $(ls -la ./)
 RUN echo $(ls -la ./libs)
 
+RUN echo $(lstat /var/lib/docker/tmp/buildkit-mount3222935191/)
+
 EXPOSE 8080
-COPY ./workspace/app/build/libs/SpringApp-*.jar application.jar
+COPY ./libs/SpringApp-*.jar application.jar
+# COPY ./workspace/app/build/libs/SpringApp-*.jar application.jar
 ENTRYPOINT ["java", "-jar", "/application.jar"]
