@@ -7,7 +7,7 @@ COPY build.gradle build.gradle
 COPY src src
 
 RUN ./gradlew clean build
-RUN echo $(ls -la ./)
+RUN ls -la ./build/libs
 RUN pwd
 
 FROM eclipse-temurin:17-jdk-alpine
