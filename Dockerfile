@@ -11,6 +11,8 @@ RUN ./gradlew clean build
 FROM eclipse-temurin:17-jdk-alpine
 WORKDIR /workspace/app
 COPY --from=builder /workspace/app/build/ ./
+RUN echo $(ls -la ./)
+RUN pwd
 
 EXPOSE 8080
 COPY ./build/libs/SpringApp-*.jar application.jar
