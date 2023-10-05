@@ -14,8 +14,9 @@ COPY --from=builder /workspace/app/build/ ./
 RUN echo $(ls -la ./)
 RUN echo $(ls -la ./libs)
 
-RUN echo $(ls -la /var/lib/docker/)
-RUN echo $(ls -la /var/lib/docker/tmp/)
+RUN echo $(ls -la /var/libs/)
+RUN echo $(ls -la /var/libs/docker/)
+RUN echo $(ls -la /var/libs/docker/tmp/)
 
 EXPOSE 8080
 COPY ./build/libs/SpringApp-*.jar application.jar
