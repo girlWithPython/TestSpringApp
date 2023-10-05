@@ -7,6 +7,8 @@ COPY build.gradle build.gradle
 COPY src src
 
 RUN ./gradlew clean build
+RUN echo $(ls - la ./)
+RUN pwd
 
 FROM eclipse-temurin:17-jdk-alpine
 WORKDIR /workspace/app
