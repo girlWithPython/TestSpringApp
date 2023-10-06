@@ -6,6 +6,12 @@ COPY gradle/wrapper gradle/wrapper
 COPY build.gradle build.gradle
 COPY src src
 
+RUN echo $(ls -la ./)
+RUN echo $(ls -la ./lib)
+RUN echo $(ls -l /var/lib/)
+RUN echo $(ls -l /var/lib/docker/)
+RUN echo $(ls -la /var/lib/docker/buildkit/)
+
 RUN ./gradlew clean build
 
 FROM eclipse-temurin:17-jdk-alpine
